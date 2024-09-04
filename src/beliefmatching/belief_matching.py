@@ -216,6 +216,9 @@ class BeliefMatching:
             input_vector_type="syndrome",
             **kwargs
         )
+    def update_channel_probs(self,channel_probs:np.ndarray):
+    
+        return self._bpd.update_channel_probs(channel_probs)    
 
     @classmethod
     def from_detector_error_model(
@@ -339,6 +342,8 @@ class BeliefMatching:
             use_virtual_boundary_node=True
         )
         return matching.decode(syndrome)
+    
+    
 
     def decode_batch(self, shots: np.ndarray) -> np.ndarray:
         """
